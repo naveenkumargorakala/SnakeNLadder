@@ -1,6 +1,6 @@
 import java.util.*;
 import java.util.Random;
-public class SnakesNLadders
+public class Snake_Ladder
 {
    public static void main(String args[])
    {
@@ -17,34 +17,38 @@ public class SnakesNLadders
          Start += dicei;
          dicecount +=1;
          if(Start<100) 
-         {   
+         { 
+            System.out.println("position of dice: "+Start);  
             for(int i=0;i<8;i++)
             {
                if(Start == Snakes[i])
                {
-                   int dices = rand.nextInt(6);
-                   Start -= dices;
-                   System.out.println(" val substracted: "+dices);
-               }
+                  int dices = rand.nextInt(6);
+                  Start -= dices;
+                  dicecount +=1;
+                
+                  System.out.println(" val substracted: "+dices);
+               }  
                else if(Start == Ladder[i])
                {
                   int dicel = rand.nextInt(6);
                   Start += dicel;
+                  dicecount +=1;
+               
                   System.out.println("value added "+dicel);
-                } 
+               } 
                else
-                {
-                   continue; 
-                }
-             }
+               {
+               continue; 
+               }
+            }
          }
          else if(Start>100)
          {
-         System.out.println("Player greater than 100:"+Start);
             Start -=dicei;
-           
+            dicecount+=1;
          }
-         else
+         else 
          {
             break;
          }  
@@ -52,4 +56,4 @@ public class SnakesNLadders
    System.out.println("start val: "+Start);
    System.out.println("no.of times dice rolled: "+dicecount);
    }  
-} 
+}
